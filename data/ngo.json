@@ -1,0 +1,42 @@
+{
+  "name": "Gachi Foundation",
+  "tagline": "Rooting communities. Growing futures.",
+  "type": "Section 8 Company (Non-Profit)",
+  "started": "19 OCT 2025",
+  "darpan_id": "JH/2025/0860947",
+  "cin": "U88900JH2025NPL025993",
+  "email": "gachifoundation@gmail.com",
+  "phone": "+91-00000-00000",
+  "last_updated": "17 June 2026",
+  "address": {
+    "line1": "GACHI FOUNDATION",
+    "line2": "BARAMASIA, GOPIKANDAR",
+    "city": "DUMKA",
+    "pincode": "814103",
+    "state": "JHARKHAND",
+    "country": "INDIA"
+  },
+  "founders": ["Panwel Hansdak", "James Julius Tudu"],
+  "regions": ["Dumka", "Pakur", "Godda", "Sahibganj"],
+  "bank": {
+    "account_name": "GACHI FOUNDATION",
+    "account_number": "44762720854",
+    "branch": "PAKURIA",
+    "ifsc": "SBIN0012539",
+    "bank_address": "MAIN ROAD PAKURIA DIST PAKUR",
+    "micr": "816002512"
+  },
+  "social": {
+    "youtube": "",
+    "instagram": "",
+    "facebook": "",
+    "twitter": "",
+    "whatsapp": ""
+  },
+  "tawk_to_src": "",
+  "mapillary": {
+    "token": "",
+    "image_id": "",
+    "note": "Free token from mapillary.com (Settings > Developers > tokens, with images:read). image_id = an image ID on a Dumka street, taken from the URL when you open it on mapillary.com. Leave blank to use the cinematic background instead."
+  }
+}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Resources</span><h1>Useful Links</h1></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card reveal"><h3>Government</h3>
+        <p><a href="https://ngodarpan.gov.in" target="_blank" rel="noopener">NITI Aayog DARPAN</a><br>
+           <a href="https://www.mca.gov.in" target="_blank" rel="noopener">Ministry of Corporate Affairs</a></p></div>
+      <div class="card reveal"><h3>Our Pages</h3>
+        <p><a href="{% url 'projects' %}">Projects</a> · <a href="{% url 'donate' %}">Donate</a> ·
+           <a href="{% url 'joinus' %}">Volunteer</a></p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

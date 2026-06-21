@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Follow Us</span>
+    <h1>Social Media</h1>
+    <p class="lead">Embed YouTube videos and Instagram posts here.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>▶ YouTube</h3>
+        <div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden">
+          <iframe style="position:absolute;inset:0;width:100%;height:100%"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="YouTube video" frameborder="0"
+            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+        <p class="small">Replace the embed URL with your video ID.</p>
+      </div>
+      <div class="card reveal">
+        <h3>📷 Instagram</h3>
+        <div class="placeholder-img">Paste your Instagram post embed code here</div>
+        <p class="small">Use Instagram → Post → Embed, and paste the &lt;blockquote&gt; code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

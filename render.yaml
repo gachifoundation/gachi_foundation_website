@@ -1,0 +1,18 @@
+# One-click deploy config for Render (https://render.com).
+# Push this repo to GitHub, then on Render: New + → Blueprint → pick the repo.
+services:
+  - type: web
+    name: gachi-foundation
+    runtime: python
+    plan: free            # upgrade to "starter" ($7/mo) to avoid idle sleep
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn gachi.wsgi"
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: ".onrender.com,gachifoundation.org,www.gachifoundation.org"
+      - key: PYTHON_VERSION
+        value: "3.12.4"

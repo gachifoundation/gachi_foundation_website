@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Legal</span><h1>Donation &amp; Refund Policy</h1></div>
+</section>
+<section class="section">
+  <div class="container article">
+    <p>{{ ngo.name }} is grateful for every contribution. This policy explains how donations are handled.</p>
+    <h2>How donations are used</h2>
+    <p>All donations support our programs in education, environment and livelihoods across Dumka, Pakur, Godda and Sahibganj, Jharkhand.</p>
+    <h2>Receipts &amp; tax exemption</h2>
+    <p>A receipt is issued for every donation. Tax-exemption certificates will be provided where applicable as registrations are completed.</p>
+    <h2>Refunds</h2>
+    <p>Donations are generally non-refundable. If a donation was made in error or an incorrect amount was charged, contact us within 7 days at <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a> and we will review the request in good faith.</p>
+    <h2>Security</h2>
+    <p>We do not store card or bank credentials on this website. Payments are made directly via your bank or UPI app using the details on our <a href="{% url 'bankdetails' %}">Bank Details</a> page.</p>
+  </div>
+</section>
+{% endblock %}

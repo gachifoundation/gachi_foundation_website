@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ page_title }}{% endblock %} · {{ ngo.name }}</title>
+
+  {# ---------- SEO ---------- #}
+  <meta name="description" content="{% block meta_description %}{{ ngo.name }} — a Section 8 non-profit celebrating the culture of Jharkhand while building education, environment and livelihoods across Dumka, Pakur, Godda and Sahibganj, India.{% endblock %}">
+  <meta name="keywords" content="Gachi Foundation, NGO Jharkhand, NGO Dumka, Section 8 company, donate NGO India, tribal education, Sohrai, Tasar silk, Pakur, Godda, Sahibganj">
+  <meta name="author" content="{{ ngo.name }}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ ngo.name }}">
+  <meta property="og:title" content="{% block og_title %}{{ page_title }}{% endblock %} · {{ ngo.name }}">
+  <meta property="og:description" content="{{ ngo.tagline }}">
+  <meta property="og:image" content="{% static 'img/logo.png' %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"NGO",
+    "name":"{{ ngo.name }}","description":"{{ ngo.tagline }}","foundingDate":"2025-10-19",
+    "email":"{{ ngo.email }}","url":"{{ request.build_absolute_uri }}",
+    "address":{"@type":"PostalAddress","streetAddress":"{{ ngo.address.line2 }}","addressLocality":"{{ ngo.address.city }}","postalCode":"{{ ngo.address.pincode }}","addressRegion":"{{ ngo.address.state }}","addressCountry":"IN"},
+    "founder":[{% for f in ngo.founders %}{"@type":"Person","name":"{{ f }}"}{% if not forloop.last %},{% endif %}{% endfor %}]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="{% static 'img/logo.png' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+{# ---------- ambient background (shared on every page) ---------- #}
+<canvas id="bg-water" aria-hidden="true"></canvas>
+<div id="page-veil" aria-hidden="true"></div>
+<canvas id="leafcanvas" aria-hidden="true"></canvas>
+
+{# ---------- header ---------- #}
+<header id="site-header">
+  <a class="logo" href="{% url 'index' %}" aria-label="{{ ngo.name }} — home">
+    <img src="{% static 'img/logo.png' %}" alt="{{ ngo.name }} logo">
+    <span>{{ ngo.name }}</span>
+  </a>
+  <nav class="nav-links">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'projects' %}">Projects</a>
+    <a href="{% url 'goal' %}">Goals</a>
+    <div class="dropdown">
+      <a href="#" aria-haspopup="true">Resources &#9662;</a>
+      <div class="dropdown-menu">
+        <a href="{% url 'aboutus' %}">About Us</a>
+        <a href="{% url 'team' %}">Team</a>
+        <a href="{% url 'progress' %}">Progress</a>
+        <a href="{% url 'gallery' %}">Gallery</a>
+        <a href="{% url 'blog' %}">Blog / News</a>
+        <a href="{% url 'partners' %}">Partners</a>
+        <a href="{% url 'donarlist' %}">Donor List</a>
+        <a href="{% url 'ourdocument' %}">Documents</a>
+        <a href="{% url 'bankdetails' %}">Bank Details</a>
+        <a href="{% url 'socialmedia' %}">Social Media</a>
+        <a href="{% url 'calender' %}">Calendar</a>
+        <a href="{% url 'allngo' %}">All NGOs</a>
+        <a href="{% url 'faq' %}">FAQ</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a href="{% url 'joinus' %}">Join Us</a>
+      </div>
+    </div>
+    <a class="donate" href="{% url 'donate' %}">&#9829; Donate</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{% url 'index' %}">Home</a>
+  <a href="{% url 'projects' %}">Projects</a>
+  <a href="{% url 'goal' %}">Goals</a>
+  <a href="{% url 'aboutus' %}">About</a>
+  <a href="{% url 'team' %}">Team</a>
+  <a href="{% url 'gallery' %}">Gallery</a>
+  <a href="{% url 'blog' %}">Blog / News</a>
+  <a href="{% url 'bankdetails' %}">Bank Details</a>
+  <a href="{% url 'allngo' %}">All NGOs</a>
+  <a href="{% url 'faq' %}">FAQ</a>
+  <a href="{% url 'contactus' %}">Contact</a>
+  <a class="donate" href="{% url 'donate' %}">&#9829; Donate</a>
+</div>
+
+{# ---------- page content ---------- #}
+<main>{% block content %}{% endblock %}</main>
+
+{# ---------- footer (full-bleed, caustic river water) ---------- #}
+<footer class="site-footer">
+  <div class="foot-water"><canvas id="foot-water"></canvas></div>
+  <div class="foot-veil"></div>
+  <div class="ribbon"></div>
+  <div class="f-cta">
+    <h2>Help heritage and hope <i>grow together.</i></h2>
+    <a href="{% url 'donate' %}" class="btn">&#9829; Donate Now</a>
+  </div>
+  <div class="f-cols">
+    <div class="f-brand">
+      <h4>{{ ngo.name }}</h4>
+      <p>{{ ngo.tagline }} Celebrating the culture of Jharkhand while building education, environment and livelihoods.</p>
+      <div class="reg">Founded {{ ngo.started }} &middot; DARPAN {{ ngo.darpan_id }}<br>CIN {{ ngo.cin }}</div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="{% url 'aboutus' %}">About Us</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="{% url 'goal' %}">Goals</a></li>
+        <li><a href="{% url 'blog' %}">Blog / News</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="{% url 'donate' %}">Donate</a></li>
+        <li><a href="{% url 'joinus' %}">Volunteer</a></li>
+        <li><a href="{% url 'partners' %}">Partners</a></li>
+        <li><a href="{% url 'bankdetails' %}">Bank Details</a></li>
+        <li><a href="{% url 'ourdocument' %}">Documents</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Reach Us</h4>
+      <ul>
+        <li>{{ ngo.address.line2 }}</li>
+        <li>{{ ngo.address.city }} &mdash; {{ ngo.address.pincode }}</li>
+        <li>{{ ngo.address.state }}, {{ ngo.address.country }}</li>
+        <li><a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a></li>
+      </ul>
+      <div class="f-social">
+        <a class="ig" href="{{ ngo.social.instagram|default:'#' }}" title="Instagram">IG</a>
+        <a class="yt" href="{{ ngo.social.youtube|default:'#' }}" title="YouTube">YT</a>
+        <a class="fb" href="{{ ngo.social.facebook|default:'#' }}" title="Facebook">FB</a>
+        <a class="x" href="{{ ngo.social.twitter|default:'#' }}" title="X">X</a>
+        <a class="wa" href="{{ ngo.social.whatsapp|default:'#' }}" title="WhatsApp">WA</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>&copy; <span data-year>2026</span> {{ ngo.name }}. All rights reserved. ·
+      <a href="{% url 'privacy' %}">Privacy</a> · <a href="{% url 'terms' %}">Terms</a> · <a href="{% url 'donationpolicy' %}">Donation Policy</a></span>
+    <span class="updated">Page last updated on: {% block last_updated %}{{ ngo.last_updated }}{% endblock %}</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="{% static 'js/flowers.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+{# ---------- tawk.to live chat (set tawk_to_src in data/ngo.json) ---------- #}
+{% if ngo.tawk_to_src %}
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;s1.src="{{ ngo.tawk_to_src }}";s1.charset="UTF-8";s1.setAttribute("crossorigin","*");
+s0.parentNode.insertBefore(s1,s0);})();
+</script>
+{% endif %}
+{% block scripts %}{% endblock %}
+</body>
+</html>

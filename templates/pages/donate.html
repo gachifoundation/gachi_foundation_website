@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Support Us</span>
+    <h1>Donate ♥</h1>
+    <p class="lead">Your gift grows real change in rural Jharkhand.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>Bank Transfer</h3>
+        <p><strong>Account Name:</strong> {{ ngo.bank.account_name }}<br>
+           <strong>Account No:</strong> {{ ngo.bank.account_number }}<br>
+           <strong>Branch:</strong> {{ ngo.bank.branch }}<br>
+           <strong>IFSC:</strong> {{ ngo.bank.ifsc }}</p>
+        <a href="{% url 'bankdetails' %}" class="btn btn-outline">Full bank details</a>
+      </div>
+      <div class="card reveal center">
+        <h3>Scan to Pay</h3>
+        <img src="{% static 'img/qr-bank.jpg' %}" alt="Gachi Foundation UPI / bank QR code" style="max-width:260px;margin:16px auto;border-radius:12px">
+        <p class="small">Scan the QR with any UPI or banking app to donate instantly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

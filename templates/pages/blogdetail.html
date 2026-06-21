@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block meta_description %}{{ post.excerpt }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">{{ post.date }} · {{ post.author }}</span>
+    <h1>{{ post.title }}</h1>
+  </div>
+</section>
+<section class="section">
+  <article class="article">
+    {% for para in post.body %}<p>{{ para }}</p>{% endfor %}
+    <p style="margin-top:30px"><a href="{% url 'blog' %}" class="btn btn-outline">← All posts</a></p>
+  </article>
+</section>
+{% endblock %}

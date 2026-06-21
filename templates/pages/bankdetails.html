@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Donations</span>
+    <h1>Bank Details</h1>
+    <p class="lead">Official SBI account of {{ ngo.name }}.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="reveal">
+        <table class="table">
+          <tr><th colspan="2">SBI Bank Details</th></tr>
+          <tr><td>Account Name</td><td>{{ ngo.bank.account_name }}</td></tr>
+          <tr><td>Account Number</td><td>{{ ngo.bank.account_number }}</td></tr>
+          <tr><td>Branch Name</td><td>{{ ngo.bank.branch }}</td></tr>
+          <tr><td>IFSC</td><td>{{ ngo.bank.ifsc }}</td></tr>
+          <tr><td>Bank Address</td><td>{{ ngo.bank.bank_address }}</td></tr>
+          <tr><td>MICR Code</td><td>{{ ngo.bank.micr }}</td></tr>
+        </table>
+      </div>
+      <div class="card reveal center">
+        <h3>UPI / QR Code</h3>
+        <img src="{% static 'img/qr-bank.jpg' %}" alt="Gachi Foundation bank / UPI QR code" style="max-width:280px;margin:16px auto;border-radius:12px">
+        <p class="small">Scan with any UPI or banking app to pay {{ ngo.bank.account_name }}.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

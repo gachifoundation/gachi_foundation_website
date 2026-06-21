@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Together</span><h1>Partners</h1>
+    <p class="lead">Organisations working alongside us.</p></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-4">
+      {% for i in "1234"|make_list %}
+      <div class="card reveal center"><div class="placeholder-img">Partner logo</div></div>
+      {% endfor %}
+    </div>
+    <p class="center" style="margin-top:24px">Want to partner with us?
+       <a href="{% url 'contactus' %}">Get in touch</a>.</p>
+  </div>
+</section>
+{% endblock %}

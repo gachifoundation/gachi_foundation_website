@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Legal</span><h1>Privacy Policy</h1></div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:820px">
+    <div class="card reveal">
+      <p>{{ ngo.name }} respects your privacy. We collect only the information you
+         voluntarily provide (such as via contact or donation forms) and use it solely
+         to respond to you and acknowledge your support.</p>
+      <h3 style="margin-top:18px">What we collect</h3>
+      <p>Name, email and message content submitted through forms; anonymous analytics
+         such as page visits.</p>
+      <h3 style="margin-top:18px">How we protect it</h3>
+      <p>Data is transmitted over secure connections and protected against common web
+         attacks (CSRF, XSS, clickjacking). We never sell your data.</p>
+      <h3 style="margin-top:18px">Contact</h3>
+      <p>Questions? Email {{ ngo.email }}.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

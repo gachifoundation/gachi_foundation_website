@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">About Us</span>
+    <h1>Our Story</h1>
+    <p class="lead">A young foundation with deep roots in the soil of Jharkhand.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>Who we are</h3>
+        <p>{{ ngo.name }} is a {{ ngo.type }}, founded on {{ ngo.started }}.
+           We work across {% for r in ngo.regions %}{{ r }}{% if not forloop.last %}, {% endif %}{% endfor %}
+           in Jharkhand, India, focusing on education, environment and livelihoods.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Registration</h3>
+        <p><strong>DARPAN ID:</strong> {{ ngo.darpan_id }}<br>
+           <strong>CIN:</strong> {{ ngo.cin }}<br>
+           <strong>Founded:</strong> {{ ngo.started }}<br>
+           <strong>Founders:</strong>
+           {% for f in ngo.founders %}{{ f }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+      </div>
+    </div>
+    <div class="card reveal" style="margin-top:28px">
+      <h3>Our Mission</h3>
+      <p>To nurture self-reliant communities by protecting the natural environment,
+         expanding access to education, and creating dignified livelihoods for the
+         tribal and rural people of the Santhal Pargana region.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

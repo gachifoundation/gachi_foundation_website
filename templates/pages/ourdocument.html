@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Transparency</span><h1>Our Documents</h1>
+    <p class="lead">Registration and compliance records.</p></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card reveal"><h3>📄 Certificate of Incorporation</h3>
+        <p>CIN: {{ ngo.cin }}</p><p class="small">Upload PDF to media/ and link here.</p></div>
+      <div class="card reveal"><h3>📄 NITI Aayog DARPAN</h3>
+        <p>{{ ngo.darpan_id }}</p></div>
+      <div class="card reveal"><h3>📄 Annual Reports</h3>
+        <p>Coming soon.</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

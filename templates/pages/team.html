@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Our People</span>
+    <h1>The Team 🌻</h1>
+    <p class="lead">Friendly faces working on the ground. Photos coming soon — drop
+       profile pictures into <code>data/team.json</code>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-4">
+      {% for m in members %}
+      <div class="card team-card reveal">
+        <div class="avatar">
+          {% if m.photo %}<img src="{{ m.photo }}" alt="{{ m.name }}">{% else %}🙂{% endif %}
+        </div>
+        <h3>{{ m.name }}</h3>
+        <p><strong>{{ m.position }}</strong></p>
+        <p class="small">{{ m.qualification }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Get Involved</span><h1>Join Us 🌱</h1>
+    <p class="lead">Volunteer, intern, or partner with us.</p></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="card reveal" style="max-width:640px;margin:0 auto">
+      <h3>Volunteer interest form</h3>
+      <form method="post" action="{% url 'contactus' %}">
+        {% csrf_token %}
+        <p><input name="name" placeholder="Your name" required
+           style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></p>
+        <p><input name="email" type="email" placeholder="Email" required
+           style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></p>
+        <p><textarea name="message" placeholder="How would you like to help?" rows="4"
+           style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></textarea></p>
+        <button class="btn" type="submit">Count me in</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

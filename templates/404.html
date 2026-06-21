@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Page not found{% endblock %}
+{% block content %}
+<section class="page-hero" style="padding-top:120px">
+  <div class="container center">
+    <span class="eyebrow">Error 404</span>
+    <h1>This path is overgrown.</h1>
+    <p class="lead" style="margin:14px auto 28px">The page you were looking for could not be found — it may have moved or never existed.</p>
+    <div class="cta" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="{% url 'index' %}" class="btn">Back home</a>
+      <a href="{% url 'contactus' %}" class="btn btn-outline">Contact us</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Directory</span>
+    <h1>All NGOs in India</h1>
+    <p class="lead">An alphabetical directory of registered NGOs and their locations.
+       Edit <code>data/allngo.json</code> to expand the list.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <table class="table reveal">
+      <tr><th>Organisation</th><th>Registered Place</th></tr>
+      {% for n in ngos %}
+      <tr><td>{{ n.name }}</td><td>{{ n.place }}</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+{% endblock %}

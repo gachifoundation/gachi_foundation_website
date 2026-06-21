@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Moments</span>
+    <h1>Gallery</h1>
+    <p class="lead">Drop images into <code>static/gallery/</code> — the filename
+       becomes the caption, descriptions live in <code>image_description.json</code>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    {% if images %}
+    <div class="gallery-grid">
+      {% for img in images %}
+      <div class="gallery-item reveal">
+        <img src="{{ img.url }}" alt="{{ img.caption }}">
+        <div class="gallery-cap">
+          <h3>{{ img.caption }}</h3>
+          {% if img.description %}<p>{{ img.description }}</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="grid grid-3">
+      {% for i in "123456"|make_list %}
+      <div class="placeholder-img reveal">Add photos to static/gallery/</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Legal</span><h1>Terms of Use</h1></div>
+</section>
+<section class="section">
+  <div class="container article">
+    <p>By using the {{ ngo.name }} website you agree to these terms. Please read them carefully.</p>
+    <h2>Use of this site</h2>
+    <p>Content on this site is provided for information about {{ ngo.name }} and its work. You may view and share it for personal, non-commercial purposes with attribution.</p>
+    <h2>Donations</h2>
+    <p>Donations made to {{ ngo.name }} support our programs in Jharkhand. Please see our <a href="{% url 'donationpolicy' %}">Donation &amp; Refund Policy</a> for details.</p>
+    <h2>Intellectual property</h2>
+    <p>Logos, text and images remain the property of {{ ngo.name }} or their respective owners and may not be reused commercially without permission.</p>
+    <h2>Limitation of liability</h2>
+    <p>The site is provided "as is". {{ ngo.name }} is not liable for any loss arising from its use.</p>
+    <h2>Contact</h2>
+    <p>Questions about these terms? Email <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a>.</p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">Gratitude</span><h1>Our Donors</h1>
+    <p class="lead">Thank you to everyone who makes our work possible.</p></div>
+</section>
+<section class="section">
+  <div class="container">
+    <table class="table reveal">
+      <tr><th>Donor</th><th>Location</th><th>Date</th></tr>
+      <tr><td>Be the first ♥</td><td>—</td><td>—</td></tr>
+    </table>
+    <p class="center" style="margin-top:24px"><a href="{% url 'donate' %}" class="btn">Become a donor</a></p>
+  </div>
+</section>
+{% endblock %}

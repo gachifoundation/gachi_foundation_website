@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div class="container"><span class="eyebrow">From the field</span>
+    <h1>Blog &amp; News</h1>
+    <p class="lead">Stories, updates and milestones from our work across Jharkhand.</p></div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      {% for p in posts %}
+      <a class="card post-card reveal" href="{% url 'blog_detail' p.slug %}">
+        <div class="post-thumb"></div>
+        <span class="date">{{ p.date }}</span>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.excerpt }}</p>
+      </a>
+      {% empty %}
+      <p>No posts yet — check back soon.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

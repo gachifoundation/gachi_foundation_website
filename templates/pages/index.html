@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <span class="eyebrow ey">Jharkhand, India &middot; Section 8 Non-Profit &middot; Est. 2025</span>
+  <h1>A mosaic of <i data-rotate="culture,|heritage,|nature,|craft,|community,">culture,</i><br>a mission of <i>care.</i></h1>
+  <p>{{ ngo.name }} works across Dumka, Pakur, Godda &amp; Sahibganj — celebrating Jharkhand's living
+     culture while nurturing education, environment and sustainable livelihoods.</p>
+  <div class="cta">
+    <a href="{% url 'donate' %}" class="btn">&#9829; Donate Now</a>
+    <a href="{% url 'projects' %}" class="btn btn-outline">See our work</a>
+  </div>
+</section>
+
+<div class="masonry">
+  <div class="t rust tall"><span class="lab">Folk Art</span><h3>Sohrai &amp; Khovar</h3><p>Wall paintings of harvest and marriage.</p></div>
+  <div class="t sand"><span class="lab">Focus</span><h3>Environment</h3><p>Forests, rivers &amp; waterfalls protected.</p></div>
+  <div class="t teal xtall"><span class="lab">Dance</span><h3>Chhau</h3><p>The masked martial dance of Seraikela — myth in motion.</p></div>
+  <div class="t paper2"><span class="lab" style="color:var(--muted)">Craft</span><h3>Dokra</h3><p>Ancient lost-wax brass figurines.</p></div>
+  <div class="t olive tall"><span class="lab">Festival</span><h3>Sarhul &amp; Karma</h3><p>Honouring the sal blossom &amp; sacred tree.</p></div>
+  <div class="t cta-tile"><span class="lab">Support</span><h3>Plant a seed</h3><a href="{% url 'donate' %}">&#9829; Donate Now</a></div>
+  <div class="t plum xtall"><span class="lab">Heritage</span><h3>Tasar Silk</h3><p>Wild golden silk woven in the forests of Jharkhand.</p></div>
+  <div class="t paper2"><span class="lab" style="color:var(--muted)">Focus</span><h3>Education</h3><p>Learning across four districts.</p></div>
+  <div class="t rust"><span class="lab">Nature</span><h3>Waterfalls</h3><p>Hundru &middot; Dassam &middot; Jonha.</p></div>
+  <div class="t sand tall"><span class="lab">Focus</span><h3>Livelihoods</h3><p>Reviving crafts &amp; sustainable farming as dignified income.</p></div>
+  <div class="t teal"><span class="lab">Festival</span><h3>Tusu</h3><p>Winter harvest celebration.</p></div>
+  <div class="t olive"><span class="lab">Land</span><h3>Sal Forests</h3><p>The green heart of the state.</p></div>
+</div>
+
+<section class="stats-band">
+  <div class="sb"><div class="num" data-to="4">0</div><div class="lab">Districts served</div></div>
+  <div class="sb"><div class="num" data-static="2025">2025</div><div class="lab">Founded</div></div>
+  <div class="sb"><div class="num" data-to="6">0</div><div class="lab">Crafts championed</div></div>
+  <div class="sb"><div class="num" data-to="100" data-suffix="%">0</div><div class="lab">Community-led</div></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="center"><span class="eyebrow">What we do</span><h2>Rooted in culture, reaching the future</h2></div>
+    <div class="grid grid-3" style="margin-top:44px">
+      <div class="card reveal"><h3>🌱 Environment</h3><p>Community-led conservation of the sal forests, rivers and waterfalls that define this land.</p></div>
+      <div class="card reveal"><h3>📚 Education</h3><p>Learning, digital literacy and scholarships for children in remote villages.</p></div>
+      <div class="card reveal"><h3>🤝 Livelihoods</h3><p>Reviving Tasar silk, Dokra and sustainable farming as dignified income.</p></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
