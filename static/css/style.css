@@ -34,7 +34,7 @@
   --line:#e3d8c2;
   --footer-bg:#0a171b;    /* dark footer / water base */
   --radius:18px;
-  --maxw:1280px;
+  --maxw:min(92vw,1760px);
   --header-h:74px;
   --font-display:"Instrument Serif",Georgia,serif;
   --font-body:"Space Grotesk",system-ui,sans-serif;
