@@ -76,12 +76,12 @@
             document.querySelectorAll(".sb .num").forEach(function (n) {
               if (n.dataset.static) return;
               var to = +n.dataset.to, suf = n.dataset.suffix || "", t0 = null;
-              (function step(ts) {
+              requestAnimationFrame(function step(ts) {
                 if (!t0) t0 = ts;
                 var p = Math.min((ts - t0) / 1200, 1);
                 n.textContent = Math.floor(p * to) + suf;
                 if (p < 1) requestAnimationFrame(step);
-              })();
+              });
             });
           }
         });

@@ -50,7 +50,11 @@ body{
   line-height:1.6;
   overflow-x:hidden;
   padding-top:var(--header-h);   /* space for the fixed header */
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
+main{flex:1}
 a{color:var(--rust);text-decoration:none;transition:color .2s}
 a:hover{color:var(--ink)}
 img{max-width:100%;display:block}
