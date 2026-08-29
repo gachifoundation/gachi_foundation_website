@@ -18,18 +18,17 @@
     "tagline": "Blank page to funded.",
     "headline": "Blank page",
     "headline_em": "to funded.",
-    "intro": "Grant proposal software that runs entirely on your own laptop. Write, cost, brand and export without an internet connection, a cloud account, or your drafts leaving the machine.",
+    "intro": "Grant proposal software that runs entirely on your own laptop. Write, cost, brand and export without an internet connection or your drafts leaving the machine.",
     "platforms": [
       "macOS 12 or newer",
-      "Windows 10 and 11",
-      "One download, both editions"
+      "Windows 10 or newer"
     ],
     "price_note": "All prices in Indian Rupees. <b>Start on Free and upgrade in place</b>, the licence file unlocks the paid tier on the same install, and your existing proposals stay exactly where they are.",
     "last_updated": "29 August 2026"
   },
 
   "trust": [
-    { "title": "Works 100% offline", "note": "Nothing calls home, not even the AI" },
+    { "title": "Works 100% offline", "note": "Nothing calls, not even the AI" },
     { "title": "Your data stays on your laptop", "note": "Local SQLite file you can copy or back up" },
     { "title": "One-time yearly licence file", "note": "A licence.lic you keep, no account to log into" },
     { "title": "macOS + Windows", "note": "Same features on both, same licence" }
@@ -54,8 +53,7 @@
         "1 organisation / NGO profile",
         "5 proposals per quarter",
         "Proposal Generator, offline template engine",
-        "Cost Calculator",
-        "5 basic proposal templates",
+        "Budget Calculator",
         "TXT export",
         "PDF export, watermarked",
         "Local SQLite storage, fully offline",
@@ -66,11 +64,9 @@
         "DOC / DOCX export",
         "AI enhancement",
         "Custom branding",
-        "Premium templates",
         "Importing existing proposals",
         "Saved budget templates",
-        "Version history",
-        "User management"
+        "Version history"
       ]
     },
     {
@@ -80,7 +76,7 @@
       "price": "₹8,600",
       "price_value": "8600",
       "price_currency": "INR",
-      "per": "per year · ₹717/month · 1 user",
+      "per": "per year · 1 user",
       "who": "Freelancers, consultants, single NGOs and startups.",
       "flag": "Most chosen",
       "cta": "Buy Pro",
@@ -90,12 +86,9 @@
       "features": [
         "Unlimited proposals",
         "DOC / DOCX / PDF / TXT / JSON export, no watermark",
-        "AI Proposal Enhancement, offline Qwen 2.5",
-        "Premium template library",
-        "Company branding: logo, colours, letterhead",
-        "Quotation Generator",
-        "Cost Estimator + Timeline Estimator",
-        "Saved budget templates + scenario planner",
+        "AI Proposal Enhancement, offline", 
+        "Company branding: logo, colours, letterhead",  
+        "Saved budget templates",
         "Proposal Library and Document Repository",
         "Grant Tracker with deadline reminders",
         "Import existing proposals",
@@ -112,7 +105,7 @@
       "price": "₹25,000",
       "price_value": "25000",
       "price_currency": "INR",
-      "per": "per year · 4 user roles",
+      "per": "per year · 4 users",
       "who": "Proposal agencies and multi-NGO operators.",
       "flag": "",
       "cta": "Buy Agency",
@@ -120,17 +113,9 @@
       "cta_ghost": false,
       "lead": "Everything in Pro, plus",
       "features": [
-        "Unlimited organisations, multi-NGO workspace",
-        "Owner, Agency Admin, Staff, Viewer roles",
-        "Full user management",
-        "White label, your brand replaces PeakOffline",
+        "Unlimited organisations, multi-NGO workspace",  
         "Multiple branding packs",
-        "Proposal versioning, history and compare",
-        "SRS Generator",
-        "Architecture Generator",
-        "Technology recommendation",
-        "Shared budget templates across the team",
-        "Client database",
+        "Proposal versioning, history and compare",   
         "Priority support"
       ],
       "not_label": "",
@@ -186,17 +171,11 @@
         "Try everything on <b>Free</b> first, on the same installer the paid tiers use, so you know what you are buying before you pay.",
         "If a paid licence will not activate and we cannot fix it, write to us within <b>7 days</b> of purchase and we will refund in full. Renewals are refundable within 7 days if the renewal was accidental."
       ]
-    },
-    {
-      "q": "Is there a discount for registered NGOs or students?",
-      "a": [
-        "Yes. Send your <b>12A / 80G certificate</b> or a valid student ID and we will send a discounted purchase link. Section 8 companies registered in the last twelve months get the steepest rate."
-      ]
-    },
+    }, 
     {
       "q": "Can two people share one Pro licence?",
       "a": [
-        "No. Pro is a single Owner seat with no user management. If two or more people need to work on the same proposals, <b>Agency</b> is the plan: four roles, unlimited organisations, and shared budget templates."
+        "No. Pro is a single Owner seat with no user management. If two or more people need to work on the same proposals, <b>Agency</b> is the plan: four users, unlimited organisations, and shared budget templates."
       ]
     }
   ],
