@@ -74,13 +74,32 @@ def gallery(request):
                   {"page_title": "Gallery", "images": images})
 
 
+def fundwright_pricing(request):
+    """Fundwright pricing page. All content is editable in data/fundwright_plans.json."""
+    fw = load_json("fundwright_plans.json", {})
+    seo = fw.get("seo", {})
+
+    # Flat, de-duplicated feature list for the schema.org featureList property.
+    features = []
+    for plan in fw.get("plans", []):
+        for f in plan.get("features", []):
+            if f not in features:
+                features.append(f)
+
+    return render(request, "pages/fundwright-pricing.html", {
+        "page_title": seo.get("title") or "Fundwright Pricing",
+        "fw": fw,
+        "fw_features": features,
+    })
+
 def sitemap(request):
     from django.urls import reverse
     names = ["index", "aboutus", "contactus", "team", "gallery", "faq",
              "privacy", "donate", "goal", "progress", "projects",
              "bankdetails", "calender", "partners", "allngo", "joinus",
              "blog", "terms", "donationpolicy", "socialmedia", "ourdocument",
-             "donarlist", "links", "onlineuser", "address"]
+             "donarlist", "links", "onlineuser", "address",
+             "fundwright_pricing"]
     base = request.build_absolute_uri("/").rstrip("/")
     urls = "".join(
         f"<url><loc>{base}{reverse(n)}</loc></url>" for n in names

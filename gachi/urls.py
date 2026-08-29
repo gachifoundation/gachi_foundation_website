@@ -35,6 +35,7 @@ urlpatterns = [
     path("donation-policy/", views.page("donationpolicy", "Donation & Refund Policy"), name="donationpolicy"),
     path("bank/", views.page("bankdetails", "Bank Details"), name="bank"),
     path("social-media/", views.page("socialmedia", "Social Media"), name="social"),
+    path("fundwright-pricing/", views.fundwright_pricing, name="fundwright_pricing"),
     path("sitemap.xml", views.sitemap, name="sitemap"),
     path("robots.txt", views.robots, name="robots"),
 ]

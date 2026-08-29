@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{# ---------------------------------------------------------------------------
+   Fundwright pricing page.
+   All content lives in data/fundwright_plans.json and reaches this template as
+   the `fw` context variable (see core/views.py -> fundwright_pricing).
+   Styling: the .fw-* block at the bottom of static/css/style.css.
+   --------------------------------------------------------------------------- #}
+
+{% block title %}{{ fw.seo.title|default:"Fundwright Pricing" }}{% endblock %}
+{% block og_title %}{{ fw.seo.og_title }}{% endblock %}
+{% block twitter_title %}{{ fw.seo.og_title }}{% endblock %}
+{% block meta_description %}{{ fw.seo.meta_description }}{% endblock %}
+{% block og_description %}{{ fw.seo.meta_description }}{% endblock %}
+{% block twitter_description %}{{ fw.seo.meta_description }}{% endblock %}
+{% block meta_keywords %}{{ fw.seo.keywords }}{% endblock %}
+{% block last_updated %}{{ fw.product.last_updated }}{% endblock %}
+
+{# ---------------------------------------------------------------------------
+   Structured data, three graphs in one block:
+     SoftwareApplication + one Offer per plan  -> price shown in search results
+     FAQPage                                   -> expandable answers in search
+     BreadcrumbList                            -> Home > Fundwright Pricing
+   All of it is generated from data/fundwright_plans.json, so editing the JSON
+   keeps the visible page and the structured data in step automatically.
+   Test after any edit at https://search.google.com/test/rich-results
+   --------------------------------------------------------------------------- #}
+{% block head_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ request.build_absolute_uri }}#software",
+      "name": "{{ fw.product.name|escapejs }}",
+      "applicationCategory": "{{ fw.seo.app_category|escapejs }}",
+      "applicationSubCategory": "Grant proposal writing software",
+      "operatingSystem": "{{ fw.seo.operating_system|escapejs }}",
+      "url": "{{ request.build_absolute_uri }}",
+      "slogan": "{{ fw.product.tagline|escapejs }}",
+      "description": "{{ fw.seo.summary|escapejs }}",
+      "publisher": { "@type": "Organization", "name": "{{ fw.seo.publisher|escapejs }}" },
+      "featureList": [{% for f in fw_features %}"{{ f|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+      "offers": [{% for plan in fw.plans %}
+        {
+          "@type": "Offer",
+          "name": "{{ plan.name|escapejs }}",
+          "description": "{{ plan.who|escapejs }}",
+          "price": "{{ plan.price_value|default:'0' }}",
+          "priceCurrency": "{{ plan.price_currency|default:'INR' }}",
+          "availability": "https://schema.org/InStock",
+          "url": "{{ request.build_absolute_uri }}"
+        }{% if not forloop.last %},{% endif %}{% endfor %}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ request.build_absolute_uri }}#faq",
+      "mainEntity": [{% for f in fw.faq %}
+        {
+          "@type": "Question",
+          "name": "{{ f.q|escapejs }}",
+          "acceptedAnswer": { "@type": "Answer", "text": "{% for para in f.a %}{{ para|striptags|escapejs }}{% if not forloop.last %} {% endif %}{% endfor %}" }
+        }{% if not forloop.last %},{% endif %}{% endfor %}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'index' %}" },
+        { "@type": "ListItem", "position": 2, "name": "{{ fw.seo.title|escapejs }}", "item": "{{ request.build_absolute_uri }}" }
+      ]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+{# ---------- hero ---------- #}
+<section class="fw-hero">
+  <div class="container">
+    <span class="eyebrow">{{ fw.product.name }} &middot; Pricing</span>
+    <h1>{{ fw.product.headline }} <i>{{ fw.product.headline_em }}</i></h1>
+    <p class="sub">{{ fw.product.intro }}</p>
+    <div class="fw-os">
+      {% for p in fw.product.platforms %}
+        <span class="fw-chip">&#9679; {{ p }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---------- trust strip ---------- #}
+<section class="fw-trust" aria-label="What every plan includes">
+  <div class="container">
+    <ul>
+      {% for t in fw.trust %}
+      <li>
+        <span class="ic">&#10003;</span>
+        <span class="tx"><b>{{ t.title }}</b><span>{{ t.note }}</span></span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# ---------- plan cards ---------- #}
+<section class="section">
+  <div class="container">
+    <div class="fw-plans">
+      {% for plan in fw.plans %}
+      <article class="fw-card {{ plan.style }} reveal">
+        {% if plan.flag %}<span class="fw-flag">{{ plan.flag }}</span>{% endif %}
+
+        <div class="fw-head">
+          <h3>{{ plan.name }}</h3>
+          <p class="fw-who">{{ plan.who }}</p>
+        </div>
+
+        <div class="fw-pricebox">
+          <div class="fw-price">{{ plan.price }}</div>
+          <div class="fw-per">{{ plan.per }}</div>
+        </div>
+
+        <a href="{{ plan.cta_url|default:'#' }}"
+           class="btn{% if plan.cta_ghost %} btn-outline{% endif %}">{{ plan.cta }}</a>
+
+        <div class="fw-body">
+          <p class="fw-label">{{ plan.lead }}</p>
+          <ul class="fw-feat">
+            {% for f in plan.features %}<li>{{ f }}</li>{% endfor %}
+          </ul>
+
+          {% if plan.not_included %}
+          <p class="fw-label" style="margin-top:20px">{{ plan.not_label }}</p>
+          <ul class="fw-feat no">
+            {% for f in plan.not_included %}<li>{{ f }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <p class="fw-note">{{ fw.product.price_note|safe }}</p>
+  </div>
+</section>
+
+{# ---------- licence explainer ---------- #}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="fw-licence reveal">
+      <div>
+        <span class="eyebrow">{{ fw.licence.eyebrow }}</span>
+        <h2>{{ fw.licence.title }}</h2>
+        <p>{{ fw.licence.intro }}</p>
+      </div>
+      <div class="fw-steps">
+        {% for s in fw.licence.steps %}
+        <div class="fw-step">
+          <span class="n">{{ forloop.counter }}</span>
+          <span><b>{{ s.title }}</b><span class="d">{{ s.note }}</span></span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------- FAQ (accordion toggling comes from static/js/main.js) ---------- #}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="fw-faq">
+      <div class="center" style="margin-bottom:34px">
+        <span class="eyebrow">Before you buy</span>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);margin-top:10px">{{ fw.faq_title }}</h2>
+      </div>
+
+      {% for f in fw.faq %}
+      <div class="faq-item reveal">
+        <h3>{{ f.q }} <span class="sign">&#43;</span></h3>
+        <div class="ans">
+          {% for para in f.a %}<p>{{ para|safe }}</p>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+
+      <p class="fw-faq-more">{{ fw.faq_footer }} <a href="{% url 'contactus' %}">Contact us</a></p>
+    </div>
+  </div>
+</section>
+
+{# ---------- closing call to action ---------- #}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="fw-cta reveal">
+      <div>
+        <h2>{{ fw.closing.title }} <i>{{ fw.closing.title_em }}</i></h2>
+        <p>{{ fw.closing.note }}</p>
+      </div>
+      <a href="{{ fw.closing.cta_url|default:'#' }}" class="btn">{{ fw.closing.cta }}</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

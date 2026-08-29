@@ -1,0 +1,4 @@
+Place your logo here as:   logo.png
+Place your donation QR here as:   qr.png
+(These filenames are referenced by the templates. Until added, the site shows
+a graceful "GF" fallback and a QR placeholder box.)
