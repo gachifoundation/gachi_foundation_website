@@ -28,10 +28,10 @@
   },
 
   "trust": [
-    { "title": "Works 100% offline", "note": "Nothing calls, not even the AI" },
-    { "title": "Your data stays on your laptop", "note": "Local SQLite file you can copy or back up" },
+    { "title": "Works 100% offline", "note": "No calls to internet required" },
+    { "title": "Your data stays on your laptop", "note": "Local database file you can copy or back up" },
     { "title": "One-time yearly licence file", "note": "A licence.lic you keep, no account to log into" },
-    { "title": "macOS + Windows", "note": "Same features on both, same licence" }
+    { "title": "macOS or Windows", "note": "Same features on both, same licence" }
   ],
 
   "plans": [
