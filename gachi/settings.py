@@ -134,3 +134,28 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+
+# ---------------------------------------------------------------------------
+# EMAIL (contact form delivery)
+# ---------------------------------------------------------------------------
+# Set these in .env. For Gmail you MUST use a 16-character App Password
+# (Google Account > Security > 2-Step Verification > App passwords).
+# A normal Gmail login password will be rejected by the SMTP server.
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", "587"))
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True").lower() == "true"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+EMAIL_TIMEOUT = 20
+
+# Where contact form messages are delivered.
+CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "gachifoundation@gmail.com")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER or CONTACT_EMAIL)
+
+# If no SMTP credentials are configured, print the mail to the console instead
+# of crashing. This keeps local development working without a password.
+if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD:
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

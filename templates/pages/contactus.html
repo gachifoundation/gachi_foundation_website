@@ -11,15 +11,19 @@
     <div class="grid grid-2">
       <div class="card reveal">
         <h3>Get in touch</h3>
-        {% if sent %}<p style="color:var(--green-700)"><strong>Thank you! We'll be in touch soon.</strong></p>{% endif %}
+        {% if sent %}<p style="color:var(--green-700)"><strong>Thank you! Your message has been sent to us.</strong></p>{% endif %}
+        {% if error %}<p style="color:#b3261e"><strong>{{ error }}</strong></p>{% endif %}
         <form method="post" action="{% url 'contactus' %}">
           {% csrf_token %}
-          <p><input name="name" placeholder="Your name" required
+          <p><input name="name" value="{{ form.name }}" placeholder="Your name" required maxlength="120"
              style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></p>
-          <p><input name="email" type="email" placeholder="Email" required
+          <p><input name="email" type="email" value="{{ form.email }}" placeholder="Email" required maxlength="200"
              style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></p>
-          <p><textarea name="message" placeholder="Message" rows="4" required
-             style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px"></textarea></p>
+          <p><textarea name="message" placeholder="Message" rows="4" required maxlength="4000"
+             style="width:100%;padding:12px;margin:8px 0;border:1px solid #cfe0d0;border-radius:10px">{{ form.message }}</textarea></p>
+          <!-- Honeypot: hidden from people, bots fill it in and get silently ignored. -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off"
+                 style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
           <button class="btn" type="submit">Send Message</button>
         </form>
       </div>
@@ -29,6 +33,7 @@
            {{ ngo.address.city }} — {{ ngo.address.pincode }}<br>
            {{ ngo.address.state }}, {{ ngo.address.country }}</p>
         <p><strong>Email:</strong> {{ ngo.email }}</p>
+        <p><strong>Phone:</strong> {{ ngo.phone }}</p>
       </div>
     </div>
   </div>
