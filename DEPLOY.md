@@ -56,8 +56,42 @@ WhiteNoise is already configured, so the app serves its own CSS/JS/images. You d
 3. After the first deploy, set `DJANGO_ALLOWED_HOSTS` to include your real domain
    (already pre-filled with `gachifoundation.org`) and trigger a redeploy.
 4. **Custom domain:** Render dashboard → Settings → Custom Domains → add
-   `www.gachifoundation.org`. Render gives you a CNAME target — add it in GoDaddy.
+   `www.gachifoundation.org`. Render gives you a CNAME target - add it in GoDaddy.
    SSL is automatic.
+
+### Contact form email on Render
+
+`.env` is never committed, so the Gmail app password must be set in the Render
+dashboard: **your service → Environment → Add Environment Variable**.
+
+| Key | Value |
+|---|---|
+| `EMAIL_HOST` | `smtp.gmail.com` |
+| `EMAIL_PORT` | `587` |
+| `EMAIL_USE_TLS` | `True` |
+| `EMAIL_HOST_USER` | `gachifoundation@gmail.com` |
+| `EMAIL_HOST_PASSWORD` | the 16-character Gmail app password |
+| `DEFAULT_FROM_EMAIL` | `gachifoundation@gmail.com` |
+| `CONTACT_EMAIL` | `gachifoundation@gmail.com` |
+
+Click **Save Changes**. Render redeploys automatically. All of these except the
+password are already listed in `render.yaml`, so a Blueprint deploy only prompts
+you for `EMAIL_HOST_PASSWORD`.
+
+**Important limitation:** since September 2025 Render blocks outbound SMTP ports
+25, 465 and 587 on **free** web services. On the free plan the contact form page
+will still work and every message is still saved to `data/contact_messages.log`,
+but no email will arrive. To get email delivery you must either upgrade the
+service to a paid instance type (Starter, $7/mo) or switch the contact form to an
+email API that sends over HTTPS instead of SMTP, such as Brevo, Resend or SendGrid.
+This limit is specific to Render. PythonAnywhere (Option A) allows SMTP to Gmail
+on its paid plans without this restriction.
+
+To verify after deploying, open the service **Shell** tab and run:
+
+```bash
+python manage.py shell -c "from django.core.mail import send_mail; from django.conf import settings; send_mail('Render test','It works.',settings.DEFAULT_FROM_EMAIL,[settings.CONTACT_EMAIL]); print('sent')"
+```
 
 (The repo also includes a `Procfile`, so Railway works the same way if you prefer it.)
 

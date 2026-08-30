@@ -16,3 +16,21 @@ services:
         value: ".onrender.com,gachifoundation.org,www.gachifoundation.org"
       - key: PYTHON_VERSION
         value: "3.12.4"
+      # ---- Contact form email (Gmail SMTP) ----
+      # NOTE: Render blocks outbound SMTP ports 25/465/587 on FREE web services.
+      # The contact form will only send mail on a paid instance type (Starter+).
+      - key: EMAIL_HOST
+        value: "smtp.gmail.com"
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USE_TLS
+        value: "True"
+      - key: EMAIL_HOST_USER
+        value: "gachifoundation@gmail.com"
+      - key: DEFAULT_FROM_EMAIL
+        value: "gachifoundation@gmail.com"
+      - key: CONTACT_EMAIL
+        value: "gachifoundation@gmail.com"
+      # Secret: Render prompts for this at deploy time, it is never stored in git.
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
