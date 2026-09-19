@@ -9,6 +9,25 @@
     <div class="container">
     <span class="eyebrow">Thank you!</span>
     <h1>You’re on the Fundwright early list.</h1>
+    <p>We’ll be in touch with you soon with more information about Fundwright.</p>
+    <a class="btn" href="{% url 'index' %}">Go to Homepage</a>
+
+    <div class="ig-embed" style="max-width:540px;margin:2rem auto;">
+      <blockquote
+        class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/gachifoundation/"
+        data-instgrm-version="14"
+        style="background:#FFF;border:0;margin:0 auto;width:100%;">
+        <a href="https://www.instagram.com/gachifoundation/" target="_blank" rel="noopener">@gachifoundation on Instagram</a>
+      </blockquote>
+    </div>
+    </div>
   </div>
+
+
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script async src="https://www.instagram.com/embed.js"></script>
 {% endblock %}
