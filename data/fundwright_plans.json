@@ -46,7 +46,7 @@
       "who": "Students, freelancers trying it out, demo and trial users.",
       "flag": "",
       "cta": "Join early list",
-      "cta_url": "/join-fundwright-early-list.html",
+      "cta_url": "{% url 'join_fundwright_early_list' %}",
       "cta_ghost": true,
       "lead": "Included",
       "features": [
@@ -80,7 +80,7 @@
       "who": "Freelancers, consultants, single NGOs and startups.",
       "flag": "Most chosen",
       "cta": "Join early list",
-      "cta_url": "/join-fundwright-early-list.html",
+      "cta_url": "{% url 'join_fundwright_early_list' %}",
       "cta_ghost": false,
       "lead": "Everything in Free, plus",
       "features": [
@@ -109,7 +109,7 @@
       "who": "Proposal agencies and multi-NGO operators.",
       "flag": "",
       "cta": "Join early list",
-      "cta_url": "/join-fundwright-early-list.html",
+      "cta_url": "{% url 'join_fundwright_early_list' %}",
       "cta_ghost": false,
       "lead": "Everything in Pro, plus",
       "features": [
