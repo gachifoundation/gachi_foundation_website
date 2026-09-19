@@ -10,7 +10,9 @@
   <meta name="description" content="{% block meta_description %}{{ ngo.name }} — a Section 8 non-profit celebrating the culture of Jharkhand while building education, environment and livelihoods across Dumka, Pakur, Godda and Sahibganj, India.{% endblock %}">
   <meta name="keywords" content="Gachi Foundation, NGO Jharkhand, NGO Dumka, Section 8 company, donate NGO India, tribal education, Sohrai, Tasar silk, Pakur, Godda, Sahibganj">
   <meta name="author" content="{{ ngo.name }}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+    {% block robots %}
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    {% endblock %} 
   <link rel="canonical" href="{{ request.build_absolute_uri }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ ngo.name }}">
