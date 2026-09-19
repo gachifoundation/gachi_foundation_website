@@ -1,24 +1,35 @@
 {% extends "base.html" %}
+
 {% block content %}
-<section class="page-hero"> 
+<section class="page-hero">
+  <div class="container">
+    <iframe
+      id="gform"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSffdRjhOawH1lvFoDgFDuL1VSnw-kWOzVqWSCnx0aXLGCXTug/viewform?embedded=true"
+      width="640"
+      height="2269"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0">Loading…</iframe>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSffdRjhOawH1lvFoDgFDuL1VSnw-kWOzVqWSCnx0aXLGCXTug/viewform?embedded=true" 
-width="640" 
-height="2269" 
-id="gform"
-frameborder="0" 
-marginheight="0" 
-marginwidth="0">Loading…</iframe>
-
-
-<script>
-  var loads = 0;
-  document.getElementById('gform').addEventListener('load', function () {
-    loads += 1;
-    if (loads > 1) {
-      window.location.href = 'https://www.gachifoundation.in/fundwright-early-list-thanks/';
-    }
-  });
-</script>
+    <div id="after-form" hidden style="margin-top:1.5rem;text-align:center;">
+      <p>If you see “Your response has been recorded”, continue. If you only cleared the form, ignore this and keep editing.</p>
+      <a class="btn" href="{% url 'fundwright_early_list_thanks' %}">Continue</a>
+    </div>
+  </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  (function () {
+    var iframe = document.getElementById('gform');
+    var box = document.getElementById('after-form');
+    var loads = 0;
+    iframe.addEventListener('load', function () {
+      loads += 1;
+      if (loads > 1) box.hidden = false;
+    });
+  })();
+</script>
 {% endblock %}
