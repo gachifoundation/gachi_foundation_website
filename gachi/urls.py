@@ -36,6 +36,7 @@ urlpatterns = [
     path("bank/", views.page("bankdetails", "Bank Details"), name="bank"),
     path("social-media/", views.page("socialmedia", "Social Media"), name="social"),
     path("fundwright-pricing/", views.fundwright_pricing, name="fundwright_pricing"),
+    path("join-fundwright-early-list/", views.page("join-fundwright-early-list", "Join Fundwright Early List"), name="join_fundwright_early_list"), 
     path("sitemap.xml", views.sitemap, name="sitemap"),
     path("robots.txt", views.robots, name="robots"),
 ]

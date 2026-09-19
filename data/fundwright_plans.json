@@ -45,8 +45,8 @@
       "per": "forever · 1 user (Owner)",
       "who": "Students, freelancers trying it out, demo and trial users.",
       "flag": "",
-      "cta": "Sign up for Coming Soon",
-      "cta_url": "join-fundwright-early-list.html",
+      "cta": "Join early list",
+      "cta_url": "/join-fundwright-early-list.html",
       "cta_ghost": true,
       "lead": "Included",
       "features": [
@@ -79,8 +79,8 @@
       "per": "per year · 1 user",
       "who": "Freelancers, consultants, single NGOs and startups.",
       "flag": "Most chosen",
-      "cta": "Sign up for Coming Soon",
-      "cta_url": "join-fundwright-early-list.html",
+      "cta": "Join early list",
+      "cta_url": "/join-fundwright-early-list.html",
       "cta_ghost": false,
       "lead": "Everything in Free, plus",
       "features": [
@@ -108,8 +108,8 @@
       "per": "per year · 4 users",
       "who": "Proposal agencies and multi-NGO operators.",
       "flag": "",
-      "cta": "Sign up for Coming Soon",
-      "cta_url": "join-fundwright-early-list.html",
+      "cta": "Join early list",
+      "cta_url": "/join-fundwright-early-list.html",
       "cta_ghost": false,
       "lead": "Everything in Pro, plus",
       "features": [
