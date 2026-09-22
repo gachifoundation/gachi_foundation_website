@@ -5,17 +5,60 @@
 </section>
 <section class="section">
   <div class="container article">
-    <p>By using the {{ ngo.name }} website you agree to these terms. Please read them carefully.</p>
+    <p>By using this website, donating to {{ ngo.name }}, or downloading, installing or buying a licence for Fundwright, you agree to these terms. If you do not agree, do not use the site or the software.</p>
+    <p>Effective 23 September 2026. Version 2.1. These terms sit alongside our <a href="{% url 'donationpolicy' %}">Donation &amp; Refund Policy</a> and <a href="{% url 'privacy' %}">Privacy Policy</a>.</p>
+
+    <h2>Who we are</h2>
+    <p>{{ ngo.name }} is a Section 8 non-profit company established in 2025, working across Dumka, Pakur, Godda and Sahibganj, Jharkhand. Registered operations and correspondence: Dumgi Baramasia, Gopikandar, Dumka — 814103, Jharkhand, India. Email: <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a>.</p>
+    <p>This website does two different things. Charitable donations support our programmes in Jharkhand. Fundwright is grant-proposal software we publish under a paid yearly licence. A Fundwright payment is the price of a software licence. It is not a donation and is not eligible for deduction under Section 80G.</p>
+
     <h2>Use of this site</h2>
-    <p>Content on this site is provided for information about {{ ngo.name }} and its work. You may view and share it for personal, non-commercial purposes with attribution.</p>
+    <p>Content on this site is provided so you can learn about {{ ngo.name }}, donate, and buy or download Fundwright. You may view and share pages for personal, non-commercial purposes with attribution. You may not scrape the site in a way that harms it, attempt to break security, pose as us, or use the site for unlawful purposes.</p>
+    <p>We may change, suspend or withdraw any page without notice. Information about programmes is descriptive and may be updated as work on the ground changes.</p>
+
     <h2>Donations</h2>
-    <p>Donations made to {{ ngo.name }} support our programs in Jharkhand. Please see our <a href="{% url 'donationpolicy' %}">Donation &amp; Refund Policy</a> for details.</p>
+    <p>Gifts to {{ ngo.name }} are governed by the <a href="{% url 'donationpolicy' %}">Donation &amp; Refund Policy</a>, not by the Fundwright licence terms below. Give only to the official account on the <a href="{% url 'bankdetails' %}">Bank Details</a> page. {{ ngo.name }} is approved under Section 80G of the Income-tax Act for qualifying monetary gifts. We do not currently accept foreign contributions under FCRA.</p>
+
+    <h2>Fundwright — the product</h2>
+    <p>Fundwright is desktop software that runs on your own computer. Writing, costing, branding, export and the on-device AI enhancement work offline. After you have received your licence file, the app does not need the internet to function. Your proposals and budgets stay in a local database on your machine.</p>
+    <p>Supported systems: macOS 12 or newer, and Windows 10 or newer. The same licence file works on both. Current plans and list prices are published on the <a href="{% url 'fundwrightpricing' %}">Fundwright pricing</a> page and may change for future purchases. As of these terms:</p>
+    <ul>
+      <li>Free — 1 user (Owner), 1 organisation profile, 5 proposals per quarter, watermarked PDF and TXT export.</li>
+      <li>Pro — 1 user, unlimited proposals, unwatermarked DOC / DOCX / PDF / TXT / JSON export, offline AI enhancement, branding, templates, library, grant tracker, import, backup / restore.</li>
+      <li>Agency — 4 users, everything in Pro, plus unlimited organisations, multiple branding packs, version history and compare, priority support.</li>
+    </ul>
+    <p>Prices are in Indian rupees. A GST invoice is emailed with the receipt. Start on Free; a paid licence file unlocks Pro or Agency on the same installer. Existing proposals are not deleted when you upgrade or when a paid licence expires.</p>
+
+    <h2>Fundwright — licence</h2>
+    <p>When you pay for Pro or Agency, {{ ngo.name }} grants you a limited, non-exclusive, non-transferable, revocable licence to install and use Fundwright for the paid term, on devices you control, within the user and organisation limits of that plan. Pro is one Owner seat and may not be shared by two people. Agency allows up to four users. You do not buy the software itself. Title, source code, models shipped in the installer (including the on-device Qwen 2.5 model), trademarks and documentation remain ours or our licensors&rsquo;.</p>
+    <p>There is no account and no sign-in. Activation is a <code>licence.lic</code> file emailed to the address you paid with. Load it in the app at Settings › Licence › Load file. The licence follows you, not a single machine: install Fundwright on a new laptop and load the same file. If the old machine is gone, write to us from the purchase email and we will re-issue the file. Lost the email? We will send the file again at no cost.</p>
+    <p>When the yearly term ends, the app keeps working but drops back to Free limits (five proposals a quarter and watermarked PDF). Nothing in your local database is deleted. Load a new licence file and paid features unlock again. Renewals replace the previous file; your data does not move.</p>
+    <p>You may not rent, sublicense, reverse engineer, remove licence checks, strip watermarks, or publish the licence file. You may make reasonable backup copies of the app, the licence file and your local database for your own use.</p>
+
+    <h2>Fundwright — your content</h2>
+    <p>Proposals, budgets, logos and documents you create in Fundwright are yours. Because the product is designed to run offline, we do not host that content on our servers. You are responsible for backing it up (copy the local database, or use Backup / restore on Pro and Agency) and for the accuracy of anything you submit to a funder. The on-device AI enhancement is a drafting aid. You must review its output before you send it.</p>
+
+    <h2>Fundwright — payment, GST and refunds</h2>
+    <p>Pay by card, UPI or bank transfer as offered at checkout. A Fundwright fee is consideration for a software licence. Do not send it to the donation account if you want it treated as a licence purchase, and do not claim 80G on it.</p>
+    <p>Try Free on the same installer before you pay. If a paid licence will not activate and we cannot fix it, write to <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a> within 7 days of purchase and we will refund in full. Accidental renewals are refundable within 7 days. After that, licence fees are non-refundable, including where you have changed your mind, chosen the wrong plan, or your hardware does not meet the published system requirements. Refunds, if approved, go to the original payer.</p>
+
     <h2>Intellectual property</h2>
-    <p>Logos, text and images remain the property of {{ ngo.name }} or their respective owners and may not be reused commercially without permission.</p>
+    <p>Logos, text, photographs, programme descriptions and the Fundwright name, installer and interface are the property of {{ ngo.name }} or their respective owners. You may not reuse them commercially without written permission. Jharkhand cultural material shown on this site (including Sohrai, Khovar, Chhau and Tasar work) is described for education and advocacy; underlying community rights remain with the artists and communities concerned.</p>
+
+    <h2>Acceptable use</h2>
+    <p>You must not use the site or Fundwright to produce or send unlawful, defamatory or fraudulent material, to infringe others&rsquo; rights, or to misrepresent a proposal as having been approved by {{ ngo.name }}. We may refuse a licence sale, disable a licence file, or block access where we reasonably believe these terms or the law have been broken.</p>
+
     <h2>Limitation of liability</h2>
-    <p>The site is provided "as is". {{ ngo.name }} is not liable for any loss arising from its use.</p>
+    <p>The website and Fundwright are provided &ldquo;as is&rdquo;. We do not warrant that the site or the software will be uninterrupted, error-free, or fit for a particular grant deadline. To the fullest extent permitted by Indian law, {{ ngo.name }} is not liable for indirect, incidental or consequential loss, or for loss of data, profit or opportunity, arising from use of the site or Fundwright. For a paid Fundwright licence our aggregate liability in a year is limited to the licence fee you paid for that year. Nothing in these terms excludes liability that cannot be excluded under the Consumer Protection Act, 2019 or other mandatory law, including liability for fraud or personal injury caused by negligence.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms, Fundwright features and list prices. The version on this page applies to new use of the site and to licences purchased after the effective date shown above. A licence already paid for keeps the plan limits you bought for that term, unless the law requires a change or you agree otherwise.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of India. Courts at Dumka, Jharkhand, have exclusive jurisdiction, without prejudice to any non-waivable rights you have as a consumer in your place of residence.</p>
+
     <h2>Contact</h2>
-    <p>Questions about these terms? Email <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a>.</p>
+    <p>Questions about these terms, a donation receipt, or a Fundwright licence file: <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a>. We aim to answer within one working day.</p>
   </div>
 </section>
 {% endblock %}

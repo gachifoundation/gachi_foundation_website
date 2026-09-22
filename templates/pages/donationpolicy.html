@@ -5,15 +5,43 @@
 </section>
 <section class="section">
   <div class="container article">
-    <p>{{ ngo.name }} is grateful for every contribution. This policy explains how donations are handled.</p>
+    <p>{{ ngo.name }} is grateful for every contribution. This policy explains how gifts are accepted, used, receipted and, where appropriate, returned. It follows the AFP International Statement of Ethical Principles in Fundraising, the Donor Bill of Rights, and applicable Indian law.</p>
+    <p>Effective 23 September 2026. Version 2.1.</p>
+
     <h2>How donations are used</h2>
-    <p>All donations support our programs in education, environment and livelihoods across Dumka, Pakur, Godda and Sahibganj, Jharkhand.</p>
-    <h2>Receipts &amp; tax exemption</h2>
-    <p>A receipt is issued for every donation. Tax-exemption certificates will be provided where applicable as registrations are completed.</p>
+    <p>Unless a donor restricts a gift in writing, donations are unrestricted general funds. They support our programmes in education, environment, livelihoods, sports and living culture across Dumka, Pakur, Godda and Sahibganj, Jharkhand, together with the reasonable cost of running the organisation.</p>
+    <p>If you name a project, village, school or craft cluster, we will honour that restriction wherever it is lawful and practical. If we cannot, we will contact you before redirecting or returning the gift.</p>
+    <p>We aim, as the organisation matures, to keep at least 65% of spending on programmes. Early-year administration may run higher while books, compliance and basic systems are built. The actual ratio will appear in our annual report. We will not use gifts for private benefit, political campaigning, religious conversion or speculative investment.</p>
+
+    <h2>Donor rights</h2>
+    <p>You have the right to know our mission and how your gift will be used; to know who governs {{ ngo.name }} and expect prudent stewardship; to see our latest adopted financial statements; to have the gift used for the purpose given, or to be consulted if that becomes impossible; to receive a prompt acknowledgement and a formal receipt; to have your information kept confidential to the extent the law allows; to deal with us professionally and without pressure; to be told that we do not use commissioned fundraisers; to remain anonymous if you wish; and to ask questions and receive prompt, truthful answers.</p>
+
+    <h2>Receipts &amp; tax exemption (80G)</h2>
+    <p>{{ ngo.name }} is approved under Section 80G of the Income-tax Act. Indian resident donors may claim a deduction on qualifying monetary gifts, subject to the Act and to the limits that apply to the donor.</p>
+    <p>A numbered receipt is issued for every monetary donation. Please share your PAN for any gift of ₹50,000 or more, and for any gift for which you want an 80G certificate. We can accept a gift without PAN; we cannot support the deduction without it. Qualifying donations are reported to the Income-tax Department so they can appear in your Form 26AS / Annual Information Statement.</p>
+    <p>Each 80G receipt will show the donor name, donor PAN (where provided), amount, date, mode of payment, our PAN, our 80G Unique Registration Number and the validity of the approval. Cash donations above the statutory cash limit, and gifts in kind, are not 80G-eligible unless the law then allows it.</p>
+    <p>A receipt is not tax advice. For most institutions of our kind the deduction is 50% of the qualifying donation, capped at 10% of adjusted total income, unless the approval order places us in a 100% category. The deduction is available only to persons to whom the Indian Income-tax Act applies.</p>
+    <p>Certificate particulars (replace with the figures on your approval order before publish): PAN: AAMCG4319B; 12A: AAMCG4319BE20251; 80G: AAMCG4319BF20251;</p>
+
+    <h2>Foreign contributions (FCRA)</h2>
+    <p>We do not currently accept foreign contributions. {{ ngo.name }} was established in 2025 and does not hold FCRA registration. Until the Ministry of Home Affairs grants registration or prior permission, and a designated FCRA account at State Bank of India, New Delhi Main Branch, is in place, we cannot accept money, goods or services from a foreign source as defined in FCRA 2010.</p>
+    <p>If you live outside India, hold foreign citizenship, or would pay from a foreign bank or organisation, write to us at <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a> before you send money. Any foreign contribution received in error will be returned or held unutilised as the Act requires. Gifts from Indian citizens and Indian entities, paid from Indian accounts into our official SBI Pakuria account, are welcome.</p>
+
     <h2>Refunds</h2>
-    <p>Donations are generally non-refundable. If a donation was made in error or an incorrect amount was charged, contact us within 7 days at <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a> and we will review the request in good faith.</p>
+    <p>Donations are generally non-refundable because they are applied to charitable work. We will review a request in good faith if there is a duplicate debit, an unauthorised transaction or a clear error in the amount; if we cannot lawfully accept the gift; or if a restricted gift cannot be used as specified and you do not agree to a redirection.</p>
+    <p>Write to <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a> within 7 days of the debit, with the date, amount, transaction reference, the account or UPI ID used, and a short explanation. If a receipt has already been issued it must be cancelled before money is returned. We may decline a refund where a tax-exemption certificate has already been issued and used, except where the error was ours. Approved refunds are paid only to the original payer. Domestic refunds are targeted within 10-15 working days of a complete request.</p>
+
+    <h2>Gift acceptance</h2>
+    <p>We ordinarily accept Indian-rupee gifts by NEFT, RTGS, IMPS, UPI, cheque or demand draft to the official account on our <a href="{% url 'bankdetails' %}">Bank Details</a> page, and in-kind gifts we can use in programmes. We may decline a gift that is unlawful, that would compromise our independence or reputation, that appears to come from criminal proceeds, or that we cannot administer without harming beneficiaries. We do not pay finder&rsquo;s fees or percentage commissions on funds raised.</p>
+
     <h2>Security</h2>
-    <p>We do not store card or bank credentials on this website. Payments are made directly via your bank or UPI app using the details on our <a href="{% url 'bankdetails' %}">Bank Details</a> page.</p>
+    <p>We do not store card or bank credentials on this website. Payments are made directly via your bank or UPI app using the details on our <a href="{% url 'bankdetails' %}">Bank Details</a> page. We will never ask for an OTP, PIN or full card number by email, WhatsApp or phone. If anyone claiming to represent us does so, treat it as fraud and tell us.</p>
+
+    <h2>Privacy</h2>
+    <p>We collect only what we need to receipt the gift, meet tax and banking duties, and, if you opt in, send updates. We do not sell or rent donor lists. You may ask to see, correct or delete personal data we hold, subject to statutory retention of financial records. Requests: <a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a>.</p>
+
+    <h2>Accountability</h2>
+    <p>The Board of {{ ngo.name }} owns this policy. Accounts will be kept and audited as required for a Section 8 company. Once we have a full financial year of operations we will publish an annual report. This page may be updated when FCRA, CSR-1 or NGO-DARPAN status changes. Material changes that affect an existing restricted gift will be notified to the donor concerned.</p>
   </div>
 </section>
 {% endblock %}
