@@ -153,6 +153,7 @@
         <li>{{ ngo.address.city }} &mdash; {{ ngo.address.pincode }}</li>
         <li>{{ ngo.address.state }}, {{ ngo.address.country }}</li>
         <li><a href="mailto:{{ ngo.email }}">{{ ngo.email }}</a></li>
+        <li><a href="tel:+919304137579">{{ ngo.phone }}</a></li>
       </ul>
       <div class="f-social">
         <a class="ig" href="{{ ngo.social.instagram|default:'#' }}" title="Instagram" target="_blank">IG</a>
@@ -164,7 +165,7 @@
     </div>
   </div>
   <div class="f-bottom">
-    <span>&copy; <span data-year>2026</span> {{ ngo.name }}. All rights reserved. ·
+    <span>&copy; <span data-year>{% now "Y" %}</span> {{ ngo.name }}. All rights reserved. ·
       <a href="{% url 'privacy' %}">Privacy</a> · <a href="{% url 'terms' %}">Terms</a> · <a href="{% url 'donationpolicy' %}">Donation Policy</a></span>
     <span class="updated">Page last updated on: {% block last_updated %}{{ ngo.last_updated }}{% endblock %}</span>
   </div>
